@@ -1,0 +1,42 @@
+.card {
+    border: 1px solid #c8cceb;
+    padding: 30px;
+    width: 220px;
+    margin-bottom: 30px;
+    border-radius: 35px;
+    -webkit-border-radius: 35px;
+    -moz-border-radius: 35px;
+    -ms-border-radius: 35px;
+    -o-border-radius: 35px;
+    background-color: rgb(255, 255, 255);
+    transition: box-shadow 0.2s ease-in-out, transform 0.2s ease-in-out;
+    -webkit-transition: box-shadow 0.2s ease-in-out, transform 0.2s ease-in-out;
+    -moz-transition: box-shadow 0.2s ease-in-out, transform 0.2s ease-in-out;
+    -ms-transition: box-shadow 0.2s ease-in-out, transform 0.2s ease-in-out;
+    -o-transition: box-shadow 0.2s ease-in-out, transform 0.2s ease-in-out;
+  
+    &:hover {
+      box-shadow: 3px 14px 30px rgba(199, 9, 9, 0.4);
+      transform: translateY(-5px);
+      -webkit-transform: translateY(-5px);
+      -moz-transform: translateY(-5px);
+      -ms-transform: translateY(-5px);
+      -o-transform: translateY(-5px);
+    }
+    .plus{
+      cursor: pointer;
+    }
+    
+    .favourite {
+      position: absolute;
+      cursor: pointer;
+    }
+    h5 {
+      font-weight: 400;
+      font-style: 14px;
+    }
+    span {
+      opacity: 0.5;
+      text-transform: uppercase;
+    }
+  }
