@@ -45,13 +45,13 @@ function App() {
 
   const onAddToFavourite = async (obj) => {
     try {
-      if(favourites.find((favObj)=> favObj.id == obj.id) ){
+      if(favourites.find((favObj)=> favObj.id === obj.id) ){
         
         axios.delete(`https://61225b16d980b40017e0924a.mockapi.io/favourites/${obj.id}`)
         /* setFavourites((prev) => prev.filter((item) => item.id !== obj.id)); */
       } else {
         const {data} = await axios.post('https://61225b16d980b40017e0924a.mockapi.io/favourites', obj);// {data} это испльзуется деструктуризация
-        setFavourites((prev) => [... prev, data]);
+        setFavourites((prev) => [...prev, data]);
       }
     } catch (error) {
       alert("Failed to add in favorite !!!")
