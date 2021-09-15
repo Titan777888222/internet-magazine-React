@@ -40,56 +40,7 @@ svg {
     fill: none;
   }
 }
-/* .card {
-  border: 1px solid #f5e7e7;
-  padding: 30px;
-  width: 220px;
-  border-radius: 35px;
-  -webkit-border-radius: 35px;
-  -moz-border-radius: 35px;
-  -ms-border-radius: 35px;
-  -o-border-radius: 35px;
-  background-color: white;
-  transition: box-shadow 0.2s ease-in-out, transform 0.2s ease-in-out;
-  -webkit-transition: box-shadow 0.2s ease-in-out, transform 0.2s ease-in-out;
-  -moz-transition: box-shadow 0.2s ease-in-out, transform 0.2s ease-in-out;
-  -ms-transition: box-shadow 0.2s ease-in-out, transform 0.2s ease-in-out;
-  -o-transition: box-shadow 0.2s ease-in-out, transform 0.2s ease-in-out;
 
-  &:hover {
-    box-shadow: 3px 14px 30px rgba(102, 89, 89, 0.28);
-    transform: translateY(-5px);
-    -webkit-transform: translateY(-5px);
-    -moz-transform: translateY(-5px);
-    -ms-transform: translateY(-5px);
-    -o-transform: translateY(-5px);
-  }
-  .favourite {
-    position: absolute;
-    cursor: pointer;
-  }
-  h5 {
-    font-weight: 400;
-    font-style: 14px;
-  }
-  span {
-    opacity: 0.5;
-    text-transform: uppercase;
-  }
-} */
-/* .button {
-  background: #ffffff;
-  border: 1px solid #f2f2f2;
-  box-sizing: border-box;
-  border-radius: 8px;
-  -webkit-border-radius: 8px;
-  -moz-border-radius: 8px;
-  -ms-border-radius: 8px;
-  -o-border-radius: 8px;
-  height: 32px;
-  width: 32px;
-  cursor: pointer;
-} */
 .search-block {
   border: 1px solid #f3dede;
   border-radius: 10px;
@@ -239,3 +190,49 @@ width: 70px;
     }
   }
 }
+ @media (max-width: 1002px) {
+  img .main_img {
+    width: 857px;
+    height: 277px;
+  }
+}
+@media (max-width: 877px) {
+  img .main_img {
+    width: 520px;
+    height: 190px;
+    margin-left: 20px;
+  }
+  .cards_block{
+  .d-flex {
+    display: flex;
+    justify-content: space-between;
+  }
+}
+}
+
+@media (max-width: 580px) {
+  .main_img {
+    width: 410px;
+    height: 110px;
+    margin-left: 40px;
+  }
+  
+}
+@media (max-width: 550px) {
+  .search {
+    display: flex;
+    flex-direction: column;
+   
+  }
+  .cards_block{
+      
+    
+     
+     align-items: center;
+      
+ }
+}  
+
+  @media (max-width: 520px) {
+    
+  }

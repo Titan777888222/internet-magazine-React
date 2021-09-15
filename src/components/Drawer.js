@@ -1,7 +1,7 @@
 
 function Drawer({onClose, onRemove, items=[] }) {
   return (
-    <div /* style={{ display: "none" }} */ className="overlay">
+    <div className="overlay">
       <div className="drawer">
         <h2 className="mb-30 d-flex align-center justify-between">CART
           <img onClick={onClose}
@@ -20,14 +20,14 @@ function Drawer({onClose, onRemove, items=[] }) {
                 className="mr-15"
                 width={70}
                 height={70}
-                src={(obj.imageUrl)}/* "/img/img/1.png" */
+                src={(obj.imageUrl)}
                 alt="cartItem"
               />
             </div>
             <div className="mr-10">
               <p>{obj.name}</p>
               <p>
-                <b>{ obj.price } rub.</b>
+                <b>{ obj.price } rub</b>
               </p>
             </div>
             <img
@@ -47,12 +47,12 @@ function Drawer({onClose, onRemove, items=[] }) {
             <li className="d-flex" >
               <span>Total:</span>
               <div></div>
-              <b >22 888 rub.</b>
+              <b >0 rub</b>
             </li>
             <li className="d-flex">
               <span>Tax 5%:</span>
               <div></div>
-              <b>10 222 rub.</b>
+              <b>0 rub</b>
             </li>
           </ul>
           <button className="greenButton">Сheckout</button>

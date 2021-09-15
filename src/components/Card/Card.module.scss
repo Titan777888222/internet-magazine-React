@@ -40,3 +40,8 @@
       text-transform: uppercase;
     }
   }
+  @media (max-width: 520px) {
+    .card{      
+      margin-left: 20%;
+    }
+  }

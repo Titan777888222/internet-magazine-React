@@ -32,7 +32,7 @@ function Card({ id, imageUrl, name, price, onFavourite, onPlus, favourited = fal
       <div className="d-flex justify-between align-center">
         <div className="d-flex flex-column ">
           <span>Price:</span>
-          <b>{price} rub.</b>
+          <b>{price} rub</b>
         </div>
 
         <img

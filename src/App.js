@@ -73,7 +73,7 @@ function App() {
         onClickCart={() => { setcartOpened(true); }}
       />
       <div>
-          <img src="/img/Splash_ screen.png" width="100%" height={270} alt="Splash_ screen" />
+          <img src="/img/Splash_ screen.png" width="100%" height={270} alt="Splash_ screen" className= "main_img"/>
       </div>
      
       <Route path="/" exact>

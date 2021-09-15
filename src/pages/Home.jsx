@@ -14,7 +14,7 @@ function Home ({
     return (
      
     <div className="content p-40 ">
-    <div className="d-flex align-center justify-between mb-40">
+    <div className="search d-flex align-center justify-between mb-40">
         <h1> {searchValue ? `Search on request:"${searchValue}"` : 'All drones'}</h1>
         <div className="search-block d-flex">
         <img src="/img/search.svg" alt="search" />
@@ -24,15 +24,12 @@ function Home ({
         </div>
     </div>
 
-    <div className="d-flex justify-between flex-wrap">
+    <div className="cards_block d-flex justify-between flex-wrap">
     
     
         {items.filter((item) => item.name.toLowerCase().includes(searchValue.toLowerCase())).map((item) => {
         return (<Card
-            /* id = {item.id}
-            name={item.name}
-            price={item.price}
-            imageUrl={item.imageUrl} */
+            
             src="./img/btn-plus.svg"
             src2="./img/btn-checked.svg"
             key={item.imageUrl} 
