@@ -1,5 +1,8 @@
+import Totalamount from "./totalamount/Totalamount";
 
-function Drawer({onClose, onRemove, items=[] }) {
+function Drawer({ onClose, onRemove, items = [] }) {
+  /* console.log(1228, items.reduce((total, value) => Number(total?.price) + Number(value?.price), 0)  ) */
+  let utills = items?.reduce((total, value) => total + Number(value?.price), 0);
   return (
     <div className="overlay">
       <div className="drawer">
@@ -11,51 +14,54 @@ function Drawer({onClose, onRemove, items=[] }) {
           />
         </h2>
         <div className="items" >
-        {items.map((obj) => (
-          <div>
-            
-            <div className="cartItem d-flex align-center mb-20">
-            <div className="cartItemImg">
-              <img
-                className="mr-15"
-                width={70}
-                height={70}
-                src={(obj.imageUrl)}
-                alt="cartItem"
-              />
+          {items.map((obj) => (
+            <div>
+
+              <div className="cartItem d-flex align-center mb-20">
+                <div className="cartItemImg">
+                  <img
+                    className="mr-15"
+                    width={70}
+                    height={70}
+                    src={(obj.imageUrl)}
+                    alt="cartItem"
+                  />
+                </div>
+                <div className="mr-10">
+                  <p>{obj.name}</p>
+                  <p>
+                    <b>{obj.price} rub</b>
+                  </p>
+                </div>
+                <img
+                  onClick={() => onRemove(obj.id)}
+                  className="remove-btn mr-15"
+                  src="/img/btn-remove.svg"
+                  alt="close"
+
+                />
+              </div>
             </div>
-            <div className="mr-10">
-              <p>{obj.name}</p>
-              <p>
-                <b>{ obj.price } rub</b>
-              </p>
-            </div>
-            <img
-              onClick = {() => onRemove(obj.id)}
-              className="remove-btn mr-15"
-              src="/img/btn-remove.svg"
-              alt="close"
-              
-            />
-            </div>
-          </div>
-  ))}
-          
+          ))}
+
         </div>
         <div className="cartTotalBlock">
           <ul >
             <li className="d-flex" >
               <span>Total:</span>
               <div></div>
-              <b >0 rub</b>
+              <b >
+                <Totalamount price={utills} />
+              </b>
             </li>
             <li className="d-flex">
               <span>Tax 5%:</span>
               <div></div>
-              <b>0 rub</b>
+              <b><Totalamount price={(utills *5)/100} /> </b>
             </li>
           </ul>
-          <button className="greenButton">Сheckout</button>
+          <button className="redButton" style={{ border: "1px solid red" }}>Сheckout</button>
+
         </div>
       </div>
     </div>

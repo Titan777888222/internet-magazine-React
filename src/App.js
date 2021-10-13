@@ -19,12 +19,15 @@ function App() {
 
     axios.get('https://61225b16d980b40017e0924a.mockapi.io/item').then((res) => {
       setItems(res.data);
+      /* console.log(res.data); */
     })
     axios.get('https://61225b16d980b40017e0924a.mockapi.io/cart').then((res) => {
       setCartItems(res.data)
+      /* console.log(res.data); */
     })
     axios.get('https://61225b16d980b40017e0924a.mockapi.io/favourites').then((res) => {
       setFavourites(res.data)
+      /* console.log(res.data); */
     })
 
     
@@ -40,8 +43,10 @@ function App() {
   const onRemoveItem = (id) => {
     axios.delete(`https://61225b16d980b40017e0924a.mockapi.io/cart/${id}`)
 
-    setCartItems(prev => prev.filter(item => item.id !== id));
-  }
+    setCartItems(prev => prev.filter(item =>
+     {console.log(item);
+      return       item.id !== id}))
+     }
 
   const onAddToFavourite = async (obj) => {
     try {
@@ -59,7 +64,7 @@ function App() {
   }
 
   const onChangeSaerchInput = (event) => {
-    console.log(event.target.value)
+    /* console.log(event.target.value) */
     setSearchValue(event.target.value)
   }
 
@@ -70,14 +75,15 @@ function App() {
       {cartOpened ? <Drawer items={cartItems} onClose={() => { setcartOpened(false); }} onRemove={onRemoveItem} /> : null}
 
       <Header
-        onClickCart={() => { setcartOpened(true); }}
+        onClickCart={() => { setcartOpened(true); }} items = {cartItems}
       />
       <div>
           <img src="/img/Splash_ screen.png" width="100%" height={270} alt="Splash_ screen" className= "main_img"/>
       </div>
      
       <Route path="/" exact>
-        <Home 
+        <Home
+        onRemoveItem={onRemoveItem} 
         searchValue={searchValue} 
         setSearchValue={setSearchValue} 
         onChangeSaerchInput={onChangeSaerchInput} 

@@ -2,8 +2,8 @@ import React from "react";
 import styles from "./Card.module.scss";
 
 
-function Card({ id, imageUrl, name, price, onFavourite, onPlus, favourited = false }) {
-  const [isAdded, setisAdded] = React.useState(false);
+function Card({ id, imageUrl, name, price, onFavourite, onPlus, onDeleteItem, favourited = false }) {
+  const [isAdded, setIsAdded] = React.useState(false);
   const [isFavourite, setIsFavourite] = React.useState(favourited);
   
   const onClickFavourite = () => {
@@ -12,8 +12,8 @@ function Card({ id, imageUrl, name, price, onFavourite, onPlus, favourited = fal
   }
 
   const onClickPlus = () => {
-    onPlus({imageUrl, name, price});
-    setisAdded(!isAdded);
+    onPlus({id, imageUrl, name, price});
+    setIsAdded(!isAdded);
   } 
 
 
@@ -34,12 +34,20 @@ function Card({ id, imageUrl, name, price, onFavourite, onPlus, favourited = fal
           <span>Price:</span>
           <b>{price} rub</b>
         </div>
+        {isAdded ?
+        // ToDo set red minus icon
+        // ToDo take buttons 
+         <img
+         className={styles.plus}
+         onClick={()=>{setIsAdded(false);onDeleteItem(id)}}
+        //  src={"./img/btn-checked.svg"}
+         alt="Delete" />
+        : <img
+        className={styles.plus}
+        onClick={onClickPlus}
+        src={isAdded === true ? "./img/btn-checked.svg" : "./img/btn-plus.svg"}
+        alt="Plus" /> }
 
-        <img
-          className={styles.plus}
-          onClick={onClickPlus}
-          src={isAdded === true ? "./img/btn-checked.svg" : "./img/btn-plus.svg"}
-          alt="Plus" />
 
       </div>
     </div>

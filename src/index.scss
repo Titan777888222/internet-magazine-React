@@ -96,6 +96,7 @@ svg {
       cursor: pointer;
     }
   }
+  
 }
 .cartTotalBlock {
   ul {
@@ -111,11 +112,10 @@ svg {
   }
   
 }
-.greenButton {
+.redButton {
   width: 100%;
   height: 55px;
-  background: #9dd558;
-  border: 0;
+  background: #ff9797;
   color: #ffffff;
   font-size:  16px;
   font-weight: 700;
@@ -136,11 +136,11 @@ svg {
 
   &:hover        
   {
-    background: darken( #7dec5b, 5%);
+    background: darken( #f86262, 5%);
   }
   &:active       
   {
-    background: darken ( #307c18, 25%);
+    background: darken ( #b94343, 25%);
   }
   button:after {
     content: "\27f6"; 
@@ -230,6 +230,13 @@ width: 70px;
    
   }
   
+} 
+@media (max-width: 420px) {    
+  div.drawer {
+    width: 10%;  
+  }
+
 }  
+ 
 
   
