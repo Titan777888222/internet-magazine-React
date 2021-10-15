@@ -67,15 +67,16 @@ function App() {
     /* console.log(event.target.value) */
     setSearchValue(event.target.value)
   }
+  let utills = () => items?.reduce((total, value) => total + Number(value?.price), 0);
 
   return (
 
     <div className="wrapper clear">
 
-      {cartOpened ? <Drawer items={cartItems} onClose={() => { setcartOpened(false); }} onRemove={onRemoveItem} /> : null}
+      {cartOpened ? <Drawer utills={utills} items={cartItems} onClose={() => { setcartOpened(false); }} onRemove={onRemoveItem} /> : null}
 
       <Header
-        onClickCart={() => { setcartOpened(true); }} items = {cartItems}
+        utills={utills} onClickCart={() => { setcartOpened(true); }} items = {cartItems}
       />
       <div>
           <img src="/img/Splash_ screen.png" width="100%" height={270} alt="Splash_ screen" className= "main_img"/>

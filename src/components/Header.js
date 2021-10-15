@@ -2,8 +2,8 @@ import { Link } from "react-router-dom"
 import Totalamount from "./totalamount/Totalamount";
 
 
-function Header( { onClickCart, items = []}) {
-  /* console.log(88888, items  ); */
+function Header({ onClickCart, items = [], utills}) {
+ 
   return (
     <header className="header d-flex justify-between align-center p-40">
       <Link to="/">
@@ -22,7 +22,7 @@ function Header( { onClickCart, items = []}) {
             <path d="M1.85559 1H6.71226L9.96622 17.2577C10.0772 17.8167 10.3814 18.3188 10.8253 18.6762C11.2692 19.0336 11.8247 19.2234 12.3946 19.2125H24.1962C24.7661 19.2234 25.3216 19.0336 25.7655 18.6762C26.2094 18.3188 26.5135 17.8167 26.6246 17.2577L28.5672 7.07083H7.92642" stroke="#09013C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
           </svg>
           
-           <Totalamount price = {items?.reduce((total, value) => total + Number(value?.price), 0)}/> 
+           <Totalamount price = {utills()}/> 
         </li>
         <li className="cu-p">
           <Link to="/favourites">
