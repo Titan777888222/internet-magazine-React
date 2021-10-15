@@ -2,8 +2,10 @@ import Totalamount from "./totalamount/Totalamount";
 
 
 
-function Drawer({ onClose, onRemove, items = [], utills }) {
-  
+function Drawer({ onClose, onRemove, items = [], totalPrice}) {
+
+  /* const utills = () => items?.reduce((total, value) => total + Number(value?.price), 0); */
+
   return (
     <div className="overlay">
       <div className="drawer">
@@ -52,13 +54,13 @@ function Drawer({ onClose, onRemove, items = [], utills }) {
               <span>Total:</span>
               <div></div>
               <b >
-                <Totalamount price={utills()} />
+                <Totalamount price={totalPrice} />
               </b>
             </li>
             <li className="d-flex">
               <span>Tax 5%:</span>
               <div></div>
-              <b><Totalamount price={(utills()*5)/100} /> </b>
+              <b><Totalamount price={(totalPrice*5)/100} /> </b>
             </li>
           </ul>
           <button className="redButton" style={{ border: "1px solid red" }}>Сheckout</button>

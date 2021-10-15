@@ -5,6 +5,7 @@ import Header from "./components/Header";
 import { Route } from "react-router-dom"
 import Home from './pages/Home';
 import Favourites from './pages/Favourites';
+import {calculateTotalAmount} from './utils/calculateTotalAmount'
 
 function App() {
 
@@ -64,19 +65,21 @@ function App() {
   }
 
   const onChangeSaerchInput = (event) => {
-    /* console.log(event.target.value) */
+    
     setSearchValue(event.target.value)
   }
-  let utills = () => items?.reduce((total, value) => total + Number(value?.price), 0);
+  
+const totalPrice = calculateTotalAmount(cartItems);
+
 
   return (
 
     <div className="wrapper clear">
 
-      {cartOpened ? <Drawer utills={utills} items={cartItems} onClose={() => { setcartOpened(false); }} onRemove={onRemoveItem} /> : null}
+      {cartOpened ? <Drawer  totalPrice={totalPrice} items={cartItems} onClose={() => { setcartOpened(false); }} onRemove={onRemoveItem} /> : null}
 
       <Header
-        utills={utills} onClickCart={() => { setcartOpened(true); }} items = {cartItems}
+        totalPrice={totalPrice} onClickCart={() => { setcartOpened(true); }} 
       />
       <div>
           <img src="/img/Splash_ screen.png" width="100%" height={270} alt="Splash_ screen" className= "main_img"/>
