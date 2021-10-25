@@ -15,7 +15,9 @@ function App() {
   const [searchValue, setSearchValue] = React.useState('');
   const [cartOpened, setcartOpened] = React.useState(false);
 
- 
+ /*  state ={
+    isCheckout: false
+  } */
   React.useEffect(() => {
 
     axios.get('https://61225b16d980b40017e0924a.mockapi.io/item').then((res) => {
@@ -45,7 +47,8 @@ function App() {
     axios.delete(`https://61225b16d980b40017e0924a.mockapi.io/cart/${id}`)
 
     setCartItems(prev => prev.filter(item =>
-     {console.log(item);
+     {
+      /*  console.log(item); */
       return       item.id !== id}))
      }
 

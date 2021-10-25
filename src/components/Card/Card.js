@@ -39,13 +39,14 @@ function Card({ id, imageUrl, name, price, onFavourite, onPlus, onDeleteItem, fa
         // ToDo take buttons 
          <img
          className={styles.plus}
-         onClick={()=>{setIsAdded(false);onDeleteItem(id)}}
-        //  src={"./img/btn-checked.svg"}
+         onClick={()=>{setIsAdded(false); onDeleteItem(id)}}
+         src="./img/btn-minus.png"
          alt="Delete" />
+         
         : <img
         className={styles.plus}
         onClick={onClickPlus}
-        src={isAdded === true ? "./img/btn-checked.svg" : "./img/btn-plus.svg"}
+        src={isAdded === true ? "./img/btn-minus.png" : "./img/btn-plus.png"}
         alt="Plus" /> }
 
 

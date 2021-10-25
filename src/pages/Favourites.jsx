@@ -15,12 +15,12 @@ function Favourites({items, onAddToFavourite}) {
             </div>
 
             <div className="d-flex justify-around flex-wrap">
-            {items.map((item) => {
+            {items.map((item, idKey) => {
               return (<Card
             
             src="./img/btn-plus.svg"
             src2="./img/btn-checked.svg"
-            key={item.imageUrl} 
+            key = {idKey} 
             favourited = {true}
             onFavourite={onAddToFavourite}
             {...item}

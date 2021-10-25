@@ -1,13 +1,13 @@
+import PayWithPayPal from "./PayWithPayPal";
 import Totalamount from "./totalamount/Totalamount";
 
 
 
-function Drawer({ onClose, onRemove, items = [], totalPrice}) {
+function Drawer({ onClose, onRemove, items = [], totalPrice }) {
 
-  /* const utills = () => items?.reduce((total, value) => total + Number(value?.price), 0); */
 
   return (
-    <div className="overlay">
+    <div className="overlay" >
       <div className="drawer">
         <h2 className="mb-30 d-flex align-center justify-between">CART
           <img onClick={onClose}
@@ -17,8 +17,8 @@ function Drawer({ onClose, onRemove, items = [], totalPrice}) {
           />
         </h2>
         <div className="items" >
-          {items.map((obj) => (
-            <div>
+          {items.map((obj, idKey) => (
+            <div key = {idKey}>
 
               <div className="cartItem d-flex align-center mb-20">
                 <div className="cartItemImg">
@@ -50,20 +50,21 @@ function Drawer({ onClose, onRemove, items = [], totalPrice}) {
         </div>
         <div className="cartTotalBlock">
           <ul >
-            <li className="d-flex" >
+            <li className="d-flex" key = "wW3$mnb1">
               <span>Total:</span>
               <div></div>
               <b >
                 <Totalamount price={totalPrice} />
               </b>
             </li>
-            <li className="d-flex">
+            <li className="d-flex" key = "wW3$mnb2">
               <span>Tax 5%:</span>
               <div></div>
-              <b><Totalamount price={(totalPrice*5)/100} /> </b>
+              <b><Totalamount price={(totalPrice * 5) / 100} /> </b>
             </li>
           </ul>
-          <button className="redButton" style={{ border: "1px solid red" }}>Сheckout</button>
+          <PayWithPayPal totalPrice={totalPrice}/>
+         
 
         </div>
       </div>
