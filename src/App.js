@@ -7,6 +7,7 @@ import Home from './pages/Home';
 import Favourites from './pages/Favourites';
 import {calculateTotalAmount} from './utils/calculateTotalAmount'
 
+
 function App() {
 
   const [items, setItems] = React.useState([]);
@@ -14,33 +15,37 @@ function App() {
   const [favourites, setFavourites] = React.useState([]);
   const [searchValue, setSearchValue] = React.useState('');
   const [cartOpened, setcartOpened] = React.useState(false);
+  const [isLoading, setIsLoading] = React.useState(true);
 
- /*  state ={
-    isCheckout: false
-  } */
+ 
   React.useEffect(() => {
+    async function fetchData() {
 
-    axios.get('https://61225b16d980b40017e0924a.mockapi.io/item').then((res) => {
-      setItems(res.data);
-      /* console.log(res.data); */
-    })
-    axios.get('https://61225b16d980b40017e0924a.mockapi.io/cart').then((res) => {
-      setCartItems(res.data)
-      /* console.log(res.data); */
-    })
-    axios.get('https://61225b16d980b40017e0924a.mockapi.io/favourites').then((res) => {
-      setFavourites(res.data)
-      /* console.log(res.data); */
-    })
-
+    setIsLoading(true);
     
+    const itemResponse = await axios.get('https://61225b16d980b40017e0924a.mockapi.io/item')
+    const cartResponse = await axios.get('https://61225b16d980b40017e0924a.mockapi.io/cart')
+    const favouritesResponse = await axios.get('https://61225b16d980b40017e0924a.mockapi.io/favourites')
+      
+    setIsLoading(false);
+
+    setItems(itemResponse.data);
+    setCartItems(cartResponse.data);
+    setFavourites(favouritesResponse.data)
+    
+  }
+  fetchData() 
   }, [])
 
   const onAddToCart = (obj) => {
-    
-    axios.post('https://61225b16d980b40017e0924a.mockapi.io/cart', obj)
+    try {
+      axios.post('https://61225b16d980b40017e0924a.mockapi.io/cart', obj)
 
     setCartItems(prev => [...prev, obj]);
+    } catch (error) {
+      console.log("We cannot add to Cart!"); 
+    }
+    
   }
 
   const onRemoveItem = (id) => {
@@ -89,14 +94,15 @@ const totalPrice = calculateTotalAmount(cartItems);
       </div>
      
       <Route path="/" exact>
-        <Home
-        onRemoveItem={onRemoveItem} 
-        searchValue={searchValue} 
-        setSearchValue={setSearchValue} 
-        onChangeSaerchInput={onChangeSaerchInput} 
-        items={items} 
-        onAddToFavourite={onAddToFavourite} 
-        onAddToCart={onAddToCart} />
+          <Home
+          onRemoveItem={onRemoveItem} 
+          searchValue={searchValue} 
+          setSearchValue={setSearchValue} 
+          onChangeSaerchInput={onChangeSaerchInput} 
+          items={items} 
+          onAddToFavourite={onAddToFavourite} 
+          onAddToCart={onAddToCart} 
+          isLoading ={isLoading}/>
       </Route>
 
       <Route path="/favourites" exact >

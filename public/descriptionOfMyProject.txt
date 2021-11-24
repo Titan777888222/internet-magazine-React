@@ -21,3 +21,5 @@ https://yookassa.ru/developers/payments/quick-start
 
     + map
     + reduce
+
+8. Подключена система оплаты на Pay Pal + Debit or Credit Card
